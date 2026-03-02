@@ -71,6 +71,48 @@
       background: var(--border);
     }
 
+    /* ===== NAV MENU ===== */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+
+    .nav-link-outline {
+      color: var(--blue);
+      border-color: var(--border);
+      background: transparent;
+    }
+
+    .nav-link-outline:hover {
+      border-color: var(--blue);
+      background: rgba(27, 58, 107, 0.05);
+    }
+
+    .nav-link-primary {
+      background: var(--orange);
+      color: white;
+    }
+
+    .nav-link-primary:hover {
+      background: var(--orange-dark);
+    }
+
     /* ===== FINANZIATORI BANNER ===== */
     .finanziatori-bar {
       background: #f0f2f5;
@@ -250,43 +292,6 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-top: 4px;
-    }
-
-    /* ===== INAIL REDUCTION BOX ===== */
-    .inail-box {
-      background: linear-gradient(135deg, #FFF8F0, #FFF3E0);
-      border-left: 5px solid var(--orange);
-      border-radius: 0 8px 8px 0;
-      padding: 24px 28px;
-      margin: 32px auto;
-      max-width: 1100px;
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .inail-box-icon {
-      font-size: 32px;
-      flex-shrink: 0;
-    }
-
-    .inail-box h3 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--orange-dark);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .inail-box p {
-      font-size: 14px;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .inail-box strong {
-      color: var(--orange-dark);
     }
 
     /* ===== SECTION ===== */
@@ -654,6 +659,172 @@
       margin-top: 16px;
     }
 
+    /* ===== SGRAVI INAIL SECTION ===== */
+    .sgravi-section {
+      background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E0 100%);
+      padding: 56px 32px;
+      border-top: 5px solid var(--orange);
+    }
+
+    .sgravi-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .sgravi-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .sgravi-header h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+
+    .sgravi-header p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .sgravi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .sgravi-card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .sgravi-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sgravi-card h3 .icon {
+      font-size: 24px;
+    }
+
+    /* Tabella vantaggi */
+    .vantaggi-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .vantaggi-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .vantaggi-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .vantaggi-table td {
+      padding: 12px 8px;
+      font-size: 14px;
+    }
+
+    .vantaggi-table td:first-child {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .vantaggi-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--orange-dark);
+    }
+
+    .check-icon {
+      color: var(--green);
+      font-size: 18px;
+    }
+
+    /* Tabella riduzioni */
+    .riduzioni-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .riduzioni-table thead {
+      background: var(--blue);
+    }
+
+    .riduzioni-table th {
+      padding: 12px 16px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: white;
+      text-align: left;
+    }
+
+    .riduzioni-table th:last-child {
+      text-align: center;
+    }
+
+    .riduzioni-table td {
+      padding: 14px 16px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .riduzioni-table td:last-child {
+      text-align: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--orange);
+    }
+
+    .riduzioni-table tbody tr:hover {
+      background: #FFF8F3;
+    }
+
+    .sgravi-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .sgravi-cta a {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .sgravi-cta a:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+    }
+
     /* ===== FOOTER ===== */
     footer {
       background: #0f1923;
@@ -679,7 +850,6 @@
     .footer-ance img {
       height: 48px;
       width: auto;
-      
     }
 
     .footer-ance-label {
@@ -695,6 +865,19 @@
     }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .header-nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 8px;
+      }
+
+      .nav-link {
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+    }
+
     @media (max-width: 768px) {
       header {
         padding: 10px 16px;
@@ -725,8 +908,12 @@
         display: none;
       }
 
-      .inail-box {
-        margin: 16px;
+      .sgravi-section {
+        padding: 36px 16px;
+      }
+
+      .sgravi-grid {
+        grid-template-columns: 1fr;
       }
 
       .form-section {
@@ -754,9 +941,12 @@
         <img src="loghi/formedil.png" alt="Formedil Piemonte">
       </a>
     </div>
-    <a href="#corsi"
-      style="display:inline-block;background:var(--orange);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:6px;text-decoration:none;">📅
-      Calendario Corsi</a>
+    <nav class="header-nav">
+      <a href="#progetto" class="nav-link nav-link-outline">Progetto</a>
+      <a href="#catalogo" class="nav-link nav-link-outline">Catalogo Corsi</a>
+      <a href="#calendario" class="nav-link nav-link-outline">Calendario Corsi</a>
+      <a href="#sgravi" class="nav-link nav-link-primary">💰 Sgravi INAIL</a>
+    </nav>
   </header>
 
   <!-- FINANZIATORI BAR -->
@@ -792,7 +982,7 @@
         <div class="benefit-pill"><span class="icon">🥽</span> Metodologie VR/AR innovative</div>
       </div>
 
-      <a href="#corsi" class="hero-cta">↓ Scegli il corso</a>
+      <a href="#calendario" class="hero-cta">↓ Scegli il corso</a>
 
       <div class="hero-stats">
         <div class="stat">
@@ -815,26 +1005,14 @@
     </div>
   </div>
 
-  <!-- INAIL REDUCTION BOX -->
-  <div style="padding: 0 24px;">
-    <div class="inail-box">
-      <div class="inail-box-icon">💶</div>
-      <div>
-        <h3>Risparmia sul Premio INAIL</h3>
-        <p>La partecipazione ai corsi consente alle imprese di <strong>documentare formazione aggiuntiva</strong>,
-          <strong>ottenere la riduzione del premio INAIL</strong> e <strong>accedere ai benefici del Modello
-            OT23</strong>. Un vantaggio concreto, oltre alla sicurezza dei tuoi lavoratori.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- SEZIONE TESTO ISTITUZIONALE -->
-  <div style="background:white;border-top:1px solid var(--border);">
+  <!-- ============================================== -->
+  <!-- SEZIONE 1: PROGETTO -->
+  <!-- ============================================== -->
+  <div id="progetto" style="background:white;border-top:1px solid var(--border);">
     <div class="section" style="max-width:900px;">
-      <div
-        style="font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">
-        Il Progetto</div>
+      <div class="section-title">Il Progetto</div>
+      <div class="section-sub">Un'iniziativa di INAIL e Regione Piemonte per la sicurezza in edilizia</div>
+      
       <div style="font-size:15px;line-height:1.75;color:var(--text);">
         <p style="margin-bottom:16px;">L'Accademia delle Costruzioni, Formedil Piemonte e ANCE Piemonte avviano la
           campagna regionale <strong>"Più formato. Più sicuro."</strong>, finalizzata a promuovere la partecipazione
@@ -871,110 +1049,106 @@
           l'obiettivo di raggiungere un numero crescente di imprese e lavoratori e di contribuire concretamente al
           miglioramento dei livelli di sicurezza nei cantieri.</p>
       </div>
+
       <!-- NOTE -->
-      <div
-        style="margin-top:28px;background:var(--light);border-radius:8px;padding:18px 22px;border:1px solid var(--border);">
-        <div
-          style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:10px;">
+      <div style="margin-top:28px;background:var(--light);border-radius:8px;padding:18px 22px;border:1px solid var(--border);">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:10px;">
           Note</div>
         <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
-          <li style="font-size:13px;color:var(--text);display:flex;gap:8px;"><span
-              style="color:var(--orange);font-weight:700;">•</span> I corsi sono aggiuntivi rispetto alla formazione
-            obbligatoria prevista dal D.Lgs. 81/2008</li>
-          <li style="font-size:13px;color:var(--text);display:flex;gap:8px;"><span
-              style="color:var(--orange);font-weight:700;">•</span> Sono finanziati da INAIL e Regione Piemonte</li>
-          <li style="font-size:13px;color:var(--text);display:flex;gap:8px;"><span
-              style="color:var(--orange);font-weight:700;">•</span> Sono completamente gratuiti per le imprese</li>
-          <li style="font-size:13px;color:var(--text);display:flex;gap:8px;"><span
-              style="color:var(--orange);font-weight:700;">•</span> Possono essere erogati in aula, in cantiere o con
-            tecnologie immersive VR/AR</li>
+          <li style="font-size:13px;color:var(--text);display:flex;gap:8px;"><span style="color:var(--orange);font-weight:700;">•</span> I corsi sono aggiuntivi rispetto alla formazione obbligatoria prevista dal D.Lgs. 81/2008</li>
+          <li style="font-size:13px;color:var(--text);display:flex;gap:8px;"><span style="color:var(--orange);font-weight:700;">•</span> Sono finanziati da INAIL e Regione Piemonte</li>
+          <li style="font-size:13px;color:var(--text);display:flex;gap:8px;"><span style="color:var(--orange);font-weight:700;">•</span> Sono completamente gratuiti per le imprese</li>
+          <li style="font-size:13px;color:var(--text);display:flex;gap:8px;"><span style="color:var(--orange);font-weight:700;">•</span> Possono essere erogati in aula, in cantiere o con tecnologie immersive VR/AR</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- CATALOGO CORSI -->
-  <div style="background:var(--light);padding:32px 24px;border-top:1px solid var(--border);">
+  <!-- ============================================== -->
+  <!-- SEZIONE 2: CATALOGO CORSI -->
+  <!-- ============================================== -->
+  <div id="catalogo" style="background:var(--light);padding:48px 24px;border-top:1px solid var(--border);">
     <div style="max-width:900px;margin:0 auto;">
-      <div
-        style="font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">
-        Catalogo dei 14 Corsi</div>
+      <div class="section-title">Catalogo dei 14 Corsi</div>
+      <div class="section-sub">Formazione aggiuntiva specialistica per il settore delle costruzioni</div>
       <img src="loghi/../Immagine2.png" alt="Catalogo Corsi"
         style="width:100%;max-width:680px;display:block;margin:0 auto;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
     </div>
   </div>
 
-  <!-- SEZIONE CORSI -->
-  <div class="section" id="corsi">
-    <div class="section-title">Calendario Corsi</div>
-    <div class="section-sub">Filtra per argomento, sede o mese — poi clicca "Iscriviti" per registrare i tuoi lavoratori
-    </div>
+  <!-- ============================================== -->
+  <!-- SEZIONE 3: CALENDARIO CORSI -->
+  <!-- ============================================== -->
+  <div id="calendario" style="background:white;border-top:1px solid var(--border);">
+    <div class="section">
+      <div class="section-title">Calendario Corsi</div>
+      <div class="section-sub">Filtra per argomento, sede o mese — poi clicca "Iscriviti" per registrare i tuoi lavoratori</div>
 
-    <!-- FILTRI -->
-    <div class="filters">
-      <div class="filter-group">
-        <label>Argomento</label>
-        <select id="filtro-cat">
-          <option value="">Tutti i corsi</option>
-        </select>
+      <!-- FILTRI -->
+      <div class="filters">
+        <div class="filter-group">
+          <label>Argomento</label>
+          <select id="filtro-cat">
+            <option value="">Tutti i corsi</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Sede Formedil</label>
+          <select id="filtro-sede">
+            <option value="">Tutte le sedi</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Destinatari</label>
+          <select id="filtro-dest">
+            <option value="">Tutti</option>
+            <option value="Lavoratori">Lavoratori</option>
+            <option value="Preposti">Preposti</option>
+            <option value="Lavoratori e Preposti">Lavoratori e Preposti</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Mese</label>
+          <select id="filtro-mese">
+            <option value="">Tutti i mesi</option>
+          </select>
+        </div>
+        <button class="btn-reset" onclick="resetFiltri()">✕ Reset</button>
       </div>
-      <div class="filter-group">
-        <label>Sede Formedil</label>
-        <select id="filtro-sede">
-          <option value="">Tutte le sedi</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <label>Destinatari</label>
-        <select id="filtro-dest">
-          <option value="">Tutti</option>
-          <option value="Lavoratori">Lavoratori</option>
-          <option value="Preposti">Preposti</option>
-          <option value="Lavoratori e Preposti">Lavoratori e Preposti</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <label>Mese</label>
-        <select id="filtro-mese">
-          <option value="">Tutti i mesi</option>
-        </select>
-      </div>
-      <button class="btn-reset" onclick="resetFiltri()">✕ Reset</button>
-    </div>
 
-    <div class="results-count" id="results-count"></div>
+      <div class="results-count" id="results-count"></div>
 
-    <div class="table-wrap">
-      <table id="tabella-corsi">
-        <thead>
-          <tr>
-            <th>Corso</th>
-            <th>Categoria</th>
-            <th>Sede</th>
-            <th>Data</th>
-            <th>Durata</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="tabella-body">
-          <tr>
-            <td colspan="6">
-              <div class="table-msg">
-                <div class="spinner"></div>
-                Caricamento corsi in corso...
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table id="tabella-corsi">
+          <thead>
+            <tr>
+              <th>Corso</th>
+              <th>Categoria</th>
+              <th>Sede</th>
+              <th>Data</th>
+              <th>Durata</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tabella-body">
+            <tr>
+              <td colspan="6">
+                <div class="table-msg">
+                  <div class="spinner"></div>
+                  Caricamento corsi in corso...
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
   <!-- FORM ISCRIZIONE -->
   <div class="form-section" id="iscriviti">
     <h2>Attiva il <span class="accent">Safety Day</span><br>per la tua Impresa</h2>
-    <p>Segnala i tuoi lavoratori interessati. La formazione parte con minimo 5 partecipanti ed è completamente gratuita.
-    </p>
+    <p>Segnala i tuoi lavoratori interessati. La formazione parte con minimo 5 partecipanti ed è completamente gratuita.</p>
     <div class="form-embed">
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSctzEKUt1WsrKHCP6X110sD2ESGhjCymAtKDHWS-0i2r9YAgg/viewform?embedded=true"
@@ -982,6 +1156,109 @@
     </div>
     <p class="form-note">I corsi vengono attivati al raggiungimento di almeno 5 partecipanti.</p>
   </div>
+
+  <!-- ============================================== -->
+  <!-- SEZIONE 4: SGRAVI INAIL PER LE IMPRESE -->
+  <!-- ============================================== -->
+  <div id="sgravi" class="sgravi-section">
+    <div class="sgravi-inner">
+      <div class="sgravi-header">
+        <h2>💰 Sgravi INAIL per le Imprese</h2>
+        <p>
+          Ogni anno l'INAIL mette a disposizione delle imprese una specifica misura di incentivazione che consente di ottenere una <strong>riduzione del premio assicurativo</strong>, attraverso il modello OT23, a favore delle aziende che realizzano interventi migliorativi delle condizioni di salute e sicurezza nei luoghi di lavoro, aggiuntivi rispetto a quelli obbligatori per legge.
+        </p>
+        <p style="margin-top:16px;">
+          Tra gli interventi riconosciuti rientrano anche le <strong>attività di formazione, informazione e addestramento non obbligatorie</strong>, che contribuiscono a elevare il livello di prevenzione e tutela dei lavoratori.
+        </p>
+        <p style="margin-top:16px;">
+          La riduzione del premio può arrivare fino al <strong>28% per le imprese di minori dimensioni</strong>, con percentuali differenziate in funzione del numero di lavoratori, e si applica al premio INAIL dovuto per l'anno di riferimento.
+        </p>
+        <p style="margin-top:16px;">
+          Questa misura rappresenta un'importante opportunità per le imprese che investono volontariamente nella sicurezza, consentendo di coniugare la riduzione del rischio con un concreto beneficio economico e contribuendo alla diffusione di una cultura della prevenzione sempre più avanzata.
+        </p>
+      </div>
+
+      <div class="sgravi-grid">
+        <!-- Card Vantaggi -->
+        <div class="sgravi-card">
+          <h3><span class="icon">📊</span> Vantaggi per l'Impresa</h3>
+          <table class="vantaggi-table">
+            <tr>
+              <td>Riduzione premio INAIL</td>
+              <td>fino al 28%</td>
+            </tr>
+            <tr>
+              <td>Risparmio annuo</td>
+              <td>migliaia €</td>
+            </tr>
+            <tr>
+              <td>Cumulabile con altri bonus</td>
+              <td><span class="check-icon">✓</span></td>
+            </tr>
+            <tr>
+              <td>Ripetibile ogni anno</td>
+              <td><span class="check-icon">✓</span></td>
+            </tr>
+            <tr>
+              <td>Migliora competitività gare</td>
+              <td><span class="check-icon">✓</span></td>
+            </tr>
+            <tr>
+              <td>Migliora sicurezza</td>
+              <td><span class="check-icon">✓</span></td>
+            </tr>
+            <tr>
+              <td>Riduce infortuni</td>
+              <td><span class="check-icon">✓</span></td>
+            </tr>
+            <tr>
+              <td>Aumenta rating aziendale</td>
+              <td><span class="check-icon">✓</span></td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Card Riduzioni -->
+        <div class="sgravi-card">
+          <h3><span class="icon">📉</span> Riduzione per Dimensione</h3>
+          <table class="riduzioni-table">
+            <thead>
+              <tr>
+                <th>Lavoratori</th>
+                <th>Riduzione</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fino a 10</td>
+                <td>28%</td>
+              </tr>
+              <tr>
+                <td>Da 10 a 50</td>
+                <td>18%</td>
+              </tr>
+              <tr>
+                <td>Da 50 a 200</td>
+                <td>10%</td>
+              </tr>
+              <tr>
+                <td>Oltre 200</td>
+                <td>5%</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12px;color:var(--muted);margin-top:16px;line-height:1.5;">
+            * La riduzione si applica al premio di regolazione dovuto per l'anno di presentazione della domanda OT23.
+          </p>
+        </div>
+      </div>
+
+      <div class="sgravi-cta">
+        <a href="#calendario">📅 Scopri i corsi disponibili</a>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
@@ -994,7 +1271,6 @@
       </div>
     </div>
   </footer>
-  
 
   <script>
     // ===== CONFIG =====
@@ -1026,7 +1302,6 @@
     // ===== FORMAT DATE =====
     function formatData(dateStr) {
       if (!dateStr) return '';
-      // gestisce sia gg/mm/aaaa che m/d/aaaa (Google Sheets format)
       const parts = dateStr.split('/');
       if (parts.length !== 3) return dateStr;
       const [g, m, a] = parts;
@@ -1084,13 +1359,11 @@
 
         if (attivo === 'N') return '';
 
-        // Logo scuola territoriale
         const logoMap = {
           'Alessandria': 'falessandria', 'Asti': 'fasti', 'Biella': 'fbiella',
           'Cuneo': 'fcuneo', 'Novara': 'fnovara', 'Torino': 'ftorino',
           'Verbania': 'fverbania', 'Verbano': 'fverbania', 'Vercelli': 'fvercelli'
         };
-        // Cerca il logo nella colonna Scuola (es. "Formedil Asti") e poi in Città
         const searchStr = `${scuola} ${citta} ${sede}`;
         const logoKey = Object.keys(logoMap).find(k => searchStr.includes(k));
         const logoSrc = logoKey ? `loghi/${logoMap[logoKey]}.png` : 'loghi/formedil.png';
@@ -1201,7 +1474,19 @@
     }
 
     loadCorsi();
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
   </script>
 </body>
 
 </html>
+

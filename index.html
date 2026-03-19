@@ -24,13 +24,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--light);
-    color: var(--text);
-    font-size: 15px;
-  }
+  body { font-family: 'Barlow', sans-serif; background: var(--light); color: var(--text); font-size: 15px; }
 
   /* ===== HEADER ===== */
   header {
@@ -47,55 +41,31 @@
     z-index: 100;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   }
+  .header-logos { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .header-logos img { height: 44px; width: auto; object-fit: contain; }
+  .header-sep { width: 1px; height: 36px; background: var(--border); }
 
-  .header-logos {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .header-logos img {
-    height: 44px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .header-sep {
-    width: 1px;
-    height: 36px;
-    background: var(--border);
-  }
-
-  /* ===== FINANZIATORI BANNER ===== */
-  .finanziatori-bar {
-    background: #f0f2f5;
-    border-bottom: 1px solid var(--border);
-    padding: 10px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .fin-label {
+  /* ===== NAV BUTTONS ===== */
+  .header-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .nav-btn {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 1.5px;
+    font-size: 13px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--muted);
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    background: transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
   }
-  .fin-logos {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .fin-logos img {
-    height: 36px;
-    width: auto;
-    object-fit: contain;
-  }
+  .nav-btn:hover { background: var(--blue); color: white; }
+  .nav-btn.accent { background: var(--orange); border-color: var(--orange); color: white; }
+  .nav-btn.accent:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
+  @media (max-width: 900px) { .header-nav { display: none; } }
 
   /* ===== HERO ===== */
   .hero {
@@ -104,442 +74,194 @@
     overflow: hidden;
     padding: 56px 32px 48px;
     color: white;
-    position: relative;
-    overflow: hidden;
   }
-  .hero-pattern {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-  }
-  .hero-pattern svg {
-    width: 100%;
-    height: 100%;
-    opacity: 0.18;
-  }
-  .hero-inner { position: relative; z-index: 1; }
-  .DISABLED_hero_after {
-    content: '';
-    position: absolute;
-    bottom: -60px; right: -60px;
-    width: 320px; height: 320px;
-    border-radius: 50%;
-    background: var(--orange);
-    opacity: 0.06;
-  }
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
+  .hero-pattern { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .hero-pattern svg { width: 100%; height: 100%; opacity: 0.18; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
   .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--brown-dark);
-    color: white;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 24px;
-    margin-bottom: 20px;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--brown-dark); color: white;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 24px; margin-bottom: 20px;
   }
   .hero h1 {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(42px, 6vw, 68px);
-    font-weight: 900;
-    line-height: 0.95;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
+    font-size: clamp(42px, 6vw, 68px); font-weight: 900;
+    line-height: 0.95; text-transform: uppercase;
+    margin-bottom: 20px; letter-spacing: -1px;
   }
   .hero h1 .accent { color: var(--orange); }
-  .hero-desc {
-    font-size: 17px;
-    opacity: 0.88;
-    max-width: 600px;
-    line-height: 1.65;
-    margin-bottom: 32px;
-  }
-
-  /* Benefici impresa */
-  .hero-benefits {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 36px;
-  }
+  .hero-desc { font-size: 17px; opacity: 0.88; max-width: 600px; line-height: 1.65; margin-bottom: 32px; }
+  .hero-benefits { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
   .benefit-pill {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 6px;
-    padding: 8px 14px;
-    font-size: 13px;
-    font-weight: 500;
-    color: white;
+    display: flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px; padding: 8px 14px; font-size: 13px; font-weight: 500; color: white;
   }
   .benefit-pill .icon { font-size: 16px; }
-
   .hero-cta {
-    display: inline-block;
-    background: var(--orange);
-    color: white;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 17px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 15px 36px;
-    border-radius: 6px;
-    text-decoration: none;
+    display: inline-block; background: var(--orange); color: white;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: 17px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 15px 36px; border-radius: 6px; text-decoration: none;
     transition: background 0.2s, transform 0.1s;
   }
   .hero-cta:hover { background: var(--orange-dark); transform: translateY(-1px); }
-
-  /* Stats */
   .hero-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-    margin-top: 40px;
-    padding-top: 32px;
+    display: flex; flex-wrap: wrap; gap: 0;
+    margin-top: 40px; padding-top: 32px;
     border-top: 1px solid rgba(255,255,255,0.15);
   }
-  .stat {
-    padding: 0 32px 0 0;
-    margin-right: 32px;
-    border-right: 1px solid rgba(255,255,255,0.15);
-  }
+  .stat { padding: 0 32px 0 0; margin-right: 32px; border-right: 1px solid rgba(255,255,255,0.15); }
   .stat:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 44px;
-    font-weight: 900;
-    color: var(--orange);
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-  .stat-label {
-    font-size: 12px;
-    opacity: 0.65;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 4px;
-  }
+  .stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: var(--orange); line-height: 1; letter-spacing: -1px; }
+  .stat-label { font-size: 12px; opacity: 0.65; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
 
-  /* ===== INAIL REDUCTION BOX ===== */
+  /* ===== INAIL BOX ===== */
   .inail-box {
     background: linear-gradient(135deg, #FFF8F0, #FFF3E0);
     border-left: 5px solid var(--brown);
     border-radius: 0 8px 8px 0;
-    padding: 24px 28px;
-    margin: 32px auto;
-    max-width: 1100px;
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+    padding: 24px 28px; margin: 32px auto;
+    max-width: 1100px; display: flex; align-items: flex-start; gap: 16px;
   }
   .inail-box-icon { font-size: 32px; flex-shrink: 0; }
   .inail-box h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--orange-dark);
-    text-transform: uppercase;
-    margin-bottom: 6px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700;
+    color: var(--orange-dark); text-transform: uppercase; margin-bottom: 6px;
   }
   .inail-box p { font-size: 14px; color: var(--text); line-height: 1.6; }
   .inail-box strong { color: var(--brown-dark); }
 
   /* ===== SECTION ===== */
-  .section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 32px 24px;
-  }
-
+  .section { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
   .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 30px;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: var(--brown-dark);
-    margin-bottom: 4px;
-    letter-spacing: -0.5px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 800;
+    text-transform: uppercase; color: var(--brown-dark); margin-bottom: 4px; letter-spacing: -0.5px;
   }
-  .section-sub {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 24px;
+  .section-sub { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+
+  /* ===== OT23 CARDS ===== */
+  .ot23-section { background: #fdf8f2; padding: 40px 24px; border-top: 1px solid var(--border); }
+  .ot23-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 768px) { .ot23-inner { grid-template-columns: 1fr; } }
+  .ot23-card {
+    background: white; border-radius: 12px; padding: 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid var(--border);
   }
+  .ot23-card-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800;
+    text-transform: uppercase; color: var(--blue); letter-spacing: 0.5px;
+    margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+  }
+  .ot23-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+    font-size: 14px; color: var(--text);
+  }
+  .ot23-row:last-child { border-bottom: none; }
+  .ot23-val { font-weight: 700; color: var(--orange); font-size: 15px; }
+  .ot23-check { color: #2E7D32; font-size: 18px; font-weight: 700; }
+  .ot23-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .ot23-table thead tr { background: var(--blue); }
+  .ot23-table thead th {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; color: white; padding: 10px 14px; text-align: left;
+  }
+  .ot23-table tbody tr { border-bottom: 1px solid var(--border); }
+  .ot23-table tbody tr:last-child { border-bottom: none; }
+  .ot23-table td { padding: 11px 14px; font-size: 14px; color: var(--text); }
+  .ot23-table td:last-child { font-weight: 700; color: var(--orange); font-size: 16px; }
+  .ot23-note { font-size: 11px; color: var(--muted); margin-top: 14px; line-height: 1.5; }
 
   /* ===== FILTRI ===== */
   .filters {
-    background: white;
-    border-radius: 10px;
-    padding: 18px 20px;
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    margin-bottom: 16px;
-    border: 1px solid var(--border);
+    background: white; border-radius: 10px; padding: 18px 20px;
+    display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-end;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06); margin-bottom: 16px; border: 1px solid var(--border);
   }
-  .filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    flex: 1;
-    min-width: 150px;
-  }
-  .filter-group label {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--muted);
-  }
+  .filter-group { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 150px; }
+  .filter-group label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--muted); }
   .filter-group select {
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    padding: 9px 12px;
-    font-family: 'Barlow', sans-serif;
-    font-size: 14px;
-    color: var(--text);
-    background: white;
-    cursor: pointer;
-    appearance: none;
+    border: 1.5px solid var(--border); border-radius: 6px; padding: 9px 12px;
+    font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--text);
+    background: white; cursor: pointer; appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%237F8C9A' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    padding-right: 32px;
+    background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px;
   }
   .filter-group select:focus { outline: none; border-color: var(--orange); }
-
   .btn-reset {
-    background: none;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    padding: 9px 16px;
-    font-size: 13px;
-    color: var(--muted);
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
-    align-self: flex-end;
-    transition: all 0.15s;
+    background: none; border: 1.5px solid var(--border); border-radius: 6px;
+    padding: 9px 16px; font-size: 13px; color: var(--muted); cursor: pointer;
+    font-family: 'Barlow', sans-serif; align-self: flex-end; transition: all 0.15s;
   }
   .btn-reset:hover { border-color: var(--orange); color: var(--orange); }
-
-  /* Results count */
-  .results-count {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
+  .results-count { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
   .results-count strong { color: var(--text); }
 
   /* ===== TABELLA ===== */
-  .table-wrap {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    border: 1px solid var(--border);
-  }
-
+  .table-wrap { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.06); border: 1px solid var(--border); }
   table { width: 100%; border-collapse: collapse; }
-
   thead { background: var(--brown); }
   thead th {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 13px 16px;
-    text-align: left;
-    color: rgba(255,255,255,0.85);
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px;
+    letter-spacing: 1px; text-transform: uppercase; padding: 13px 16px;
+    text-align: left; color: rgba(255,255,255,0.85);
   }
-
-  tbody tr {
-    border-bottom: 1px solid var(--border);
-    transition: background 0.12s;
-  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: #FFF8F3; }
-
-  td {
-    padding: 14px 16px;
-    font-size: 14px;
-    vertical-align: middle;
-  }
-
+  td { padding: 14px 16px; font-size: 14px; vertical-align: middle; }
   .corso-titolo { font-weight: 600; color: var(--blue); font-size: 14px; }
   .corso-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-  /* Categoria badges */
   .cat {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    padding: 3px 9px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
+    display: inline-block; font-size: 10px; font-weight: 700;
+    padding: 3px 9px; border-radius: 20px; text-transform: uppercase;
+    letter-spacing: 0.5px; white-space: nowrap;
   }
-  .cat-Digitale       { background: #EEF2FF; color: #3B5BDB; }
-  .cat-Innovazione    { background: #FFF3E0; color: #E65100; }
-  .cat-NearMiss, .cat-Near { background: #FFF8E1; color: #F9A825; }
-  .cat-Gestione       { background: #E8F5E9; color: #2E7D32; }
-  .cat-Salute         { background: #FCE4EC; color: #AD1457; }
-  .cat-Preposto       { background: #EDE7F6; color: #4527A0; }
-  .cat-Procedure      { background: #E3F2FD; color: #0D47A1; }
-  .cat-Relazionale    { background: #FBE9E7; color: #BF360C; }
-
-  /* Sede */
+  .cat-Tecnologiedigitali { background: #EEF2FF; color: #3B5BDB; }
+  .cat-Innovazione        { background: #FFF3E0; color: #E65100; }
+  .cat-Analisinfortuni    { background: #FFF8E1; color: #F9A825; }
+  .cat-Organizzazionecantiere { background: #E8F5E9; color: #2E7D32; }
+  .cat-Gestionerifiuti    { background: #E8F5E9; color: #2E7D32; }
+  .cat-Salute             { background: #FCE4EC; color: #AD1457; }
+  .cat-Ruolopreposto      { background: #EDE7F6; color: #4527A0; }
+  .cat-Proceduresicurezza { background: #E3F2FD; color: #0D47A1; }
+  .cat-Comunicazione      { background: #FBE9E7; color: #BF360C; }
+  .cat-Malattieprofessionali { background: #FCE4EC; color: #AD1457; }
   .sede-wrap { display: flex; align-items: center; gap: 6px; }
-  .sede-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; }
   .sede-name { font-weight: 500; font-size: 13px; }
   .sede-citta { font-size: 11px; color: var(--muted); }
-
-  /* Data */
   .data-giorno { font-weight: 600; color: var(--blue); font-size: 13px; }
   .data-ora { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
-  /* Durata */
   .durata-badge {
-    display: inline-block;
-    background: var(--light);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 3px 8px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text);
+    display: inline-block; background: var(--light); border: 1px solid var(--border);
+    border-radius: 4px; padding: 3px 8px; font-size: 12px; font-weight: 600; color: var(--text);
   }
-
-  /* Iscriviti */
   .btn-iscriviti {
-    display: inline-block;
-    background: var(--orange);
-    color: white;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    padding: 8px 18px;
-    border-radius: 5px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.15s;
+    display: inline-block; background: var(--orange); color: white;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px;
+    letter-spacing: 0.5px; text-transform: uppercase; padding: 8px 18px; border-radius: 5px;
+    text-decoration: none; border: none; cursor: pointer; white-space: nowrap; transition: background 0.15s;
   }
   .btn-iscriviti:hover { background: var(--orange-dark); }
-
-  /* Loading / Empty */
-  .table-msg {
-    text-align: center;
-    padding: 48px 24px;
-    color: var(--muted);
-    font-size: 15px;
-  }
+  .table-msg { text-align: center; padding: 48px 24px; color: var(--muted); font-size: 15px; }
   .table-msg .spinner {
-    width: 32px; height: 32px;
-    border: 3px solid var(--border);
-    border-top-color: var(--orange);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin: 0 auto 16px;
+    width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--orange);
+    border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ===== FORM SECTION ===== */
-  .form-section {
-    background: var(--blue);
-    padding: 56px 32px;
-    color: white;
-    text-align: center;
-    margin-top: 48px;
-  }
-  .form-section h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
-  }
-  .form-section h2 .accent { color: var(--orange); }
-  .form-section p {
-    opacity: 0.8;
-    max-width: 520px;
-    margin: 0 auto 32px;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-  .form-embed {
-    background: white;
-    border-radius: 12px;
-    max-width: 700px;
-    margin: 0 auto;
-    overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
-  }
-  .form-embed iframe {
-    width: 100%;
-    height: 640px;
-    border: none;
-    display: block;
-  }
-  .form-note {
-    font-size: 12px;
-    opacity: 0.55;
-    margin-top: 16px;
-  }
-
   /* ===== FOOTER ===== */
-  footer {
-    background: #0f1923;
-    padding: 28px 32px;
-  }
+  footer { background: #0f1923; padding: 28px 32px; }
   .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
+    max-width: 1100px; margin: 0 auto; display: flex;
+    align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
-  .footer-ance {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .footer-ance img { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: 0.7; }
-  .footer-ance-label {
-    font-size: 11px;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.4;
-  }
-  .footer-copy {
-    font-size: 11px;
-    color: rgba(255,255,255,0.25);
-    text-align: right;
-  }
+  .footer-ance { display: flex; align-items: center; gap: 10px; }
+  .footer-ance-label { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.4; }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); text-align: right; }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
@@ -549,10 +271,8 @@
     .section { padding: 24px 16px; }
     .filters { gap: 10px; }
     .filter-group { min-width: 130px; }
-    thead th:nth-child(4),
-    td:nth-child(4) { display: none; }
+    thead th:nth-child(4), td:nth-child(4) { display: none; }
     .inail-box { margin: 16px; }
-    .form-section { padding: 36px 16px; }
   }
 </style>
 </head>
@@ -562,7 +282,7 @@
 <header>
   <div class="header-logos">
     <a href="https://accademiacostruzioni.it/" target="_blank" rel="noopener">
-      <img src="loghi/pfps.png" alt="Più Formato Più Sicuro" onerror="this.outerHTML='<div style=\'font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:18px;line-height:1.1;color:#1B3A6B;text-transform:uppercase;\'>Più Formato<br><span style=\'color:#F47920\'>Più Sicuro</span></div>'">
+      <img src="loghi/pfps.png" alt="Più Formato Più Sicuro" onerror="this.style.display='none'">
     </a>
     <div class="header-sep"></div>
     <a href="https://accademiacostruzioni.it/" target="_blank" rel="noopener">
@@ -573,10 +293,13 @@
       <img src="loghi/formedil.png" alt="Formedil Piemonte">
     </a>
   </div>
-  <a href="#corsi" style="display:inline-block;background:var(--orange);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:6px;text-decoration:none;">📅 Calendario Corsi</a>
+  <nav class="header-nav">
+    <a href="#progetto" class="nav-btn">Progetto</a>
+    <a href="#catalogo" class="nav-btn">Catalogo Corsi</a>
+    <a href="#corsi" class="nav-btn">Calendario Corsi</a>
+    <a href="#sgravi" class="nav-btn accent">💰 Sgravi INAIL</a>
+  </nav>
 </header>
-
-
 
 <!-- HERO -->
 <div class="hero">
@@ -611,19 +334,14 @@
       <span>🏗️</span> <span data-testo="hero_badge">Formazione Gratuita per le Imprese Edili del Piemonte</span>
     </div>
     <h1>Più Formato.<br><span class="accent">Più Sicuro.</span></h1>
-    <p class="hero-desc">
-      14 corsi gratuiti di formazione aggiuntiva sulla sicurezza in edilizia, erogati nelle Agenzie Formative del Piemonte con metodologie innovative. Un investimento sulla tua impresa che non ti costa nulla.
-    </p>
-
+    <p class="hero-desc">14 corsi gratuiti di formazione aggiuntiva sulla sicurezza in edilizia, erogati nelle Agenzie Formative del Piemonte con metodologie innovative. Un investimento sulla tua impresa che non ti costa nulla.</p>
     <div class="hero-benefits">
       <div class="benefit-pill"><span class="icon">✅</span> Formazione completamente gratuita</div>
       <div class="benefit-pill"><span class="icon">📋</span> Attestato di partecipazione</div>
       <div class="benefit-pill"><span class="icon">💰</span> Riduzione premio INAIL (OT23)</div>
       <div class="benefit-pill"><span class="icon">🥽</span> Metodologie VR/AR innovative</div>
     </div>
-
     <a href="#corsi" class="hero-cta">↓ Scegli il corso</a>
-
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-num">14</div>
@@ -657,7 +375,7 @@
 </div>
 
 <!-- SEZIONE TESTO ISTITUZIONALE -->
-<div style="background:white;border-top:1px solid var(--border);">
+<div id="progetto" style="background:white;border-top:1px solid var(--border);">
 <div class="section" style="max-width:900px;">
   <div style="font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;text-transform:uppercase;color:var(--blue);margin-bottom:6px;" data-testo="progetto_titolo">Il Progetto</div>
   <div style="font-size:14px;color:var(--muted);margin-bottom:20px;font-style:italic;" data-testo="progetto_subtitle">Un'iniziativa di INAIL e Regione Piemonte per la sicurezza in edilizia</div>
@@ -671,7 +389,6 @@
     <p style="margin-bottom:16px;" data-testo="progetto_p7">La partecipazione ai corsi consente alle imprese di documentare interventi formativi aggiuntivi, utili anche ai fini dell'accesso ai meccanismi premiali previsti da INAIL, tra cui la <strong>riduzione del tasso medio di tariffa per prevenzione (Modello OT23)</strong>.</p>
     <p data-testo="progetto_p8">Il progetto ha dimensione regionale e coinvolge l'intera rete delle Agenzie Formative del Piemonte, con l'obiettivo di raggiungere un numero crescente di imprese e lavoratori e di contribuire concretamente al miglioramento dei livelli di sicurezza nei cantieri.</p>
   </div>
-  <!-- NOTE -->
   <div style="margin-top:28px;background:var(--light);border-radius:8px;padding:18px 22px;border:1px solid var(--border);">
     <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:10px;">Note</div>
     <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
@@ -686,105 +403,50 @@
 
 <!-- INAIL BOX DINAMICO -->
 <div style="background:var(--light);padding:0 0 8px;">
-<div class="inail-box">
-  <div class="inail-box-icon">💰</div>
-  <div>
-    <h3 data-testo="inail_titolo">Sgravi INAIL per le Imprese</h3>
-    <p data-testo="inail_testo">Ogni anno l'INAIL mette a disposizione delle imprese una specifica misura di incentivazione che consente di ottenere una <strong>riduzione del premio assicurativo fino al 28%</strong> attraverso il modello OT23. Tra gli interventi riconosciuti rientrano le attività di formazione non obbligatorie. La riduzione si applica al premio INAIL dovuto per l'anno di riferimento.</p>
+  <div class="inail-box">
+    <div class="inail-box-icon">💰</div>
+    <div>
+      <h3 data-testo="inail_titolo">Sgravi INAIL per le Imprese</h3>
+      <p data-testo="inail_testo">Ogni anno l'INAIL mette a disposizione delle imprese una specifica misura di incentivazione che consente di ottenere una <strong>riduzione del premio assicurativo fino al 28%</strong> attraverso il modello OT23. Tra gli interventi riconosciuti rientrano le attività di formazione non obbligatorie. La riduzione si applica al premio INAIL dovuto per l'anno di riferimento.</p>
+    </div>
   </div>
 </div>
-</div>
+
 <!-- OT23 CARDS -->
-<div class="ot23-section">
+<div id="sgravi" class="ot23-section">
   <div class="ot23-inner">
-
-    <div class="sgravi-grid">
-        <!-- Card Vantaggi -->
-        <div class="sgravi-card">
-          <h3><span class="icon">📊</span> Vantaggi per l'Impresa</h3>
-          <table class="vantaggi-table">
-            <tr>
-              <td>Riduzione premio INAIL</td>
-              <td>fino al 28%</td>
-            </tr>
-            <tr>
-              <td>Risparmio annuo</td>
-              <td>migliaia €</td>
-            </tr>
-            <tr>
-              <td>Cumulabile con altri bonus</td>
-              <td><span class="check-icon">✓</span></td>
-            </tr>
-            <tr>
-              <td>Ripetibile ogni anno</td>
-              <td><span class="check-icon">✓</span></td>
-            </tr>
-            <tr>
-              <td>Migliora competitività gare</td>
-              <td><span class="check-icon">✓</span></td>
-            </tr>
-            <tr>
-              <td>Migliora sicurezza</td>
-              <td><span class="check-icon">✓</span></td>
-            </tr>
-            <tr>
-              <td>Riduce infortuni</td>
-              <td><span class="check-icon">✓</span></td>
-            </tr>
-            <tr>
-              <td>Aumenta rating aziendale</td>
-              <td><span class="check-icon">✓</span></td>
-            </tr>
-          </table>
-        </div>
-
-        <!-- Card Riduzioni -->
-        <div class="sgravi-card">
-          <h3><span class="icon">📉</span> Riduzione per Dimensione</h3>
-          <table class="riduzioni-table">
-            <thead>
-              <tr>
-                <th>Lavoratori</th>
-                <th>Riduzione</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Fino a 10</td>
-                <td>28%</td>
-              </tr>
-              <tr>
-                <td>Da 10 a 50</td>
-                <td>18%</td>
-              </tr>
-              <tr>
-                <td>Da 50 a 200</td>
-                <td>10%</td>
-              </tr>
-              <tr>
-                <td>Oltre 200</td>
-                <td>5%</td>
-              </tr>
-            </tbody>
-          </table>
-          <p style="font-size:12px;color:var(--muted);margin-top:16px;line-height:1.5;">
-            * La riduzione si applica al premio di regolazione dovuto per l'anno di presentazione della domanda OT23.
-          </p>
-        </div>
-      </div>
-
-      <div class="sgravi-cta">
-        <a href="#calendario">📅 Scopri i corsi disponibili</a>
-      </div>
-    </div>  
+    <div class="ot23-card">
+      <div class="ot23-card-title"><span>📊</span> Vantaggi per l'Impresa</div>
+      <div class="ot23-row"><span>Riduzione premio INAIL</span><span class="ot23-val">fino al 28%</span></div>
+      <div class="ot23-row"><span>Risparmio annuo</span><span class="ot23-val">migliaia €</span></div>
+      <div class="ot23-row"><span>Cumulabile con altri bonus</span><span class="ot23-check">✓</span></div>
+      <div class="ot23-row"><span>Ripetibile ogni anno</span><span class="ot23-check">✓</span></div>
+      <div class="ot23-row"><span>Migliora competitività gare</span><span class="ot23-check">✓</span></div>
+      <div class="ot23-row"><span>Migliora sicurezza</span><span class="ot23-check">✓</span></div>
+      <div class="ot23-row"><span>Riduce infortuni</span><span class="ot23-check">✓</span></div>
+      <div class="ot23-row"><span>Aumenta rating aziendale</span><span class="ot23-check">✓</span></div>
+    </div>
+    <div class="ot23-card">
+      <div class="ot23-card-title"><span>📉</span> Riduzione per Dimensione</div>
+      <table class="ot23-table">
+        <thead><tr><th>Lavoratori</th><th>Riduzione</th></tr></thead>
+        <tbody>
+          <tr><td>Fino a 10</td><td>28%</td></tr>
+          <tr><td>Da 10 a 50</td><td>18%</td></tr>
+          <tr><td>Da 50 a 200</td><td>10%</td></tr>
+          <tr><td>Oltre 200</td><td>5%</td></tr>
+        </tbody>
+      </table>
+      <p class="ot23-note">* La riduzione si applica al premio di regolazione dovuto per l'anno di presentazione della domanda OT23.</p>
+    </div>
   </div>
 </div>
 
 <!-- CATALOGO CORSI -->
-<div style="background:var(--light);padding:32px 24px;border-top:1px solid var(--border);">
+<div id="catalogo" style="background:var(--light);padding:32px 24px;border-top:1px solid var(--border);">
   <div style="max-width:900px;margin:0 auto;">
     <div style="font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;text-transform:uppercase;color:var(--blue);margin-bottom:20px;">Catalogo dei 14 Corsi</div>
-    <img src="loghi/../Immagine2.png" alt="Catalogo Corsi" style="width:100%;max-width:680px;display:block;margin:0 auto;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
+    <img src="Immagine2.png" alt="Catalogo Corsi" style="width:100%;max-width:680px;display:block;margin:0 auto;border-radius:10px;box-shadow:0 4px 20px rgba(0,0,0,0.1);">
   </div>
 </div>
 
@@ -792,20 +454,14 @@
 <div class="section" id="corsi">
   <div class="section-title" data-testo="calendario_titolo">Calendario Corsi</div>
   <div class="section-sub" data-testo="calendario_sub">Filtra per argomento, sede o mese — poi clicca "Iscriviti" per registrare i tuoi lavoratori</div>
-
-  <!-- FILTRI -->
   <div class="filters">
     <div class="filter-group">
       <label>Argomento</label>
-      <select id="filtro-cat">
-        <option value="">Tutti i corsi</option>
-      </select>
+      <select id="filtro-cat"><option value="">Tutti i corsi</option></select>
     </div>
     <div class="filter-group">
-      <label>Sede Formedil</label>
-      <select id="filtro-sede">
-        <option value="">Tutte le sedi</option>
-      </select>
+      <label>Agenzia Formativa</label>
+      <select id="filtro-sede"><option value="">Tutte le agenzie</option></select>
     </div>
     <div class="filter-group">
       <label>Destinatari</label>
@@ -818,15 +474,11 @@
     </div>
     <div class="filter-group">
       <label>Mese</label>
-      <select id="filtro-mese">
-        <option value="">Tutti i mesi</option>
-      </select>
+      <select id="filtro-mese"><option value="">Tutti i mesi</option></select>
     </div>
     <button class="btn-reset" onclick="resetFiltri()">✕ Reset</button>
   </div>
-
   <div class="results-count" id="results-count"></div>
-
   <div class="table-wrap">
     <table id="tabella-corsi">
       <thead>
@@ -840,14 +492,7 @@
         </tr>
       </thead>
       <tbody id="tabella-body">
-        <tr>
-          <td colspan="6">
-            <div class="table-msg">
-              <div class="spinner"></div>
-              Caricamento corsi in corso...
-            </div>
-          </td>
-        </tr>
+        <tr><td colspan="6"><div class="table-msg"><div class="spinner"></div>Caricamento corsi in corso...</div></td></tr>
       </tbody>
     </table>
   </div>
@@ -859,7 +504,7 @@
     <div class="footer-ance">
       <a href="https://piemonte.ance.it/" target="_blank" rel="noopener" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
         <div style="background:white;border-radius:6px;padding:4px 10px;display:flex;align-items:center;">
-          <img src="loghi/ance.png" alt="ANCE Piemonte Valle d'Aosta" style="height:28px;width:auto;" onerror="this.style.display='none'">
+          <img src="loghi/ance.png" alt="ANCE Piemonte Valle d'Aosta" style="height:28px;width:auto;mix-blend-mode:multiply;">
         </div>
         <div class="footer-ance-label">
           Sito realizzato da<br>
@@ -868,31 +513,23 @@
       </a>
     </div>
     <div class="footer-copy">
-      © 2025 Più Formato Più Sicuro<br>
+      © 2026 Più Formato Più Sicuro<br>
       Progetto finanziato da INAIL e Regione Piemonte
     </div>
   </div>
 </footer>
 
 <script>
-// ===== CONFIG =====
-// ⚠️ TESTI_CSV_URL: pubblica il foglio Testi_Sito come CSV e incolla qui il link
-// Vai su File → Pubblica sul web → Foglio: Testi_Sito → Formato: CSV → copia link
 const TESTI_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=295878207&single=true&output=csv';
-
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=1090395270&single=true&output=csv';
 const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSctzEKUt1WsrKHCP6X110sD2ESGhjCymAtKDHWS-0i2r9YAgg/viewform';
-
-// ===== DATA =====
 let tuttiCorsi = [];
 
-// ===== PARSE CSV =====
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
   return lines.slice(1).map(line => {
-    const vals = [];
-    let cur = '', inQ = false;
+    const vals = []; let cur = '', inQ = false;
     for (let c of line) {
       if (c === '"') inQ = !inQ;
       else if (c === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
@@ -905,19 +542,15 @@ function parseCSV(text) {
   }).filter(r => r['ID'] && r['ID'] !== 'ID');
 }
 
-// ===== FORMAT DATE =====
 function formatData(dateStr) {
   if (!dateStr) return '';
-  // gestisce sia gg/mm/aaaa che m/d/aaaa (Google Sheets format)
   const parts = dateStr.split('/');
   if (parts.length !== 3) return dateStr;
   const [g, m, a] = parts;
   const mesi = ['','Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
   const giorni = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
-  try {
-    const d = new Date(a, m-1, g);
-    return `${giorni[d.getDay()]} ${g} ${mesi[parseInt(m)]} ${a}`;
-  } catch(e) { return dateStr; }
+  try { const d = new Date(a, m-1, g); return `${giorni[d.getDay()]} ${g} ${mesi[parseInt(m)]} ${a}`; }
+  catch(e) { return dateStr; }
 }
 
 function getMeseAnno(dateStr) {
@@ -928,26 +561,19 @@ function getMeseAnno(dateStr) {
   return `${mesi[parseInt(parts[1])]} ${parts[2]}`;
 }
 
-// ===== CAT CLASS =====
 function catClass(cat) {
   if (!cat) return '';
-  const clean = cat.replace(/\s+/g, '').replace('Miss','');
-  return `cat-${clean}`;
+  return 'cat-' + cat.replace(/\s+/g, '').replace(/[|\/]/g, '');
 }
 
-// ===== RENDER =====
 function renderTabella(corsi) {
   const body = document.getElementById('tabella-body');
   const count = document.getElementById('results-count');
-
   if (corsi.length === 0) {
     body.innerHTML = `<tr><td colspan="6"><div class="table-msg">Nessun corso trovato con i filtri selezionati.</div></td></tr>`;
-    count.innerHTML = 'Nessun corso trovato';
-    return;
+    count.innerHTML = 'Nessun corso trovato'; return;
   }
-
   count.innerHTML = `Visualizzati <strong>${corsi.length}</strong> ${corsi.length === 1 ? 'corso' : 'corsi'}`;
-
   body.innerHTML = corsi.map(c => {
     const titolo = c['Titolo'] || '—';
     const cat = c['Categoria'] || '';
@@ -955,25 +581,10 @@ function renderTabella(corsi) {
     const contenuti = c['Contenuti principali'] || '';
     const durata = c['Durata'] || '4 ore';
     const scuola = c['Scuola'] || '';
-    const sede = c['Sede'] || '';
     const citta = c['Città'] || '';
-    const indirizzo = c['Indirizzo'] || '';
     const data = c['Data'] || '';
     const ora = c['Ora inizio'] || '';
-    const postiMax = c['Posti max'] || '';
     const linkForm = c['Link form'] || FORM_URL;
-
-    // Logo scuola territoriale
-    const logoMap = {
-      'Alessandria': 'falessandria', 'Asti': 'fasti', 'Biella': 'fbiella',
-      'Cuneo': 'fcuneo', 'Novara': 'fnovara', 'Torino': 'ftorino',
-      'Verbania': 'fverbania', 'Verbano': 'fverbania', 'Vercelli': 'fvercelli'
-    };
-    // Cerca il logo nella colonna Scuola (es. "Formedil Asti") e poi in Città
-    const searchStr = `${scuola} ${citta} ${sede}`;
-    const logoKey = Object.keys(logoMap).find(k => searchStr.includes(k));
-    const logoSrc = logoKey ? `loghi/${logoMap[logoKey]}.png` : 'loghi/formedil.png';
-
     return `<tr>
       <td>
         <div class="corso-titolo">${titolo}</div>
@@ -982,7 +593,6 @@ function renderTabella(corsi) {
       <td><span class="cat ${catClass(cat)}">${cat}</span></td>
       <td>
         <div class="sede-wrap">
-          <img src="${logoSrc}" alt="${scuola}" style="height:28px;width:auto;object-fit:contain;border-radius:3px;" onerror="this.style.display='none'">
           <div>
             <div class="sede-name">${scuola}</div>
             ${citta ? `<div class="sede-citta">${citta}</div>` : ''}
@@ -994,118 +604,74 @@ function renderTabella(corsi) {
         ${ora ? `<div class="data-ora">ore ${ora}</div>` : ''}
       </td>
       <td><span class="durata-badge">${durata}</span></td>
-      <td>
-        <a class="btn-iscriviti" href="${linkForm}" target="_blank">Iscriviti →</a>
-      </td>
+      <td><a class="btn-iscriviti" href="${linkForm}" target="_blank">Iscriviti →</a></td>
     </tr>`;
   }).join('');
 }
 
-// ===== POPOLA FILTRI =====
 function popolaFiltri(corsi) {
   const cats = [...new Set(corsi.map(c => c['Categoria']).filter(Boolean))].sort();
   const sedi = [...new Set(corsi.map(c => c['Scuola']).filter(Boolean))].sort();
   const mesi = [...new Set(corsi.map(c => getMeseAnno(c['Data'] || '')).filter(Boolean))];
-
   const sel = (id, opts) => {
     const el = document.getElementById(id);
-    opts.forEach(o => {
-      const opt = document.createElement('option');
-      opt.value = o; opt.textContent = o;
-      el.appendChild(opt);
-    });
+    opts.forEach(o => { const opt = document.createElement('option'); opt.value = o; opt.textContent = o; el.appendChild(opt); });
   };
-
-  sel('filtro-cat', cats);
-  sel('filtro-sede', sedi);
-  sel('filtro-mese', mesi);
+  sel('filtro-cat', cats); sel('filtro-sede', sedi); sel('filtro-mese', mesi);
 }
 
-// ===== FILTRA =====
 function filtra() {
   const cat = document.getElementById('filtro-cat').value;
   const sede = document.getElementById('filtro-sede').value;
   const dest = document.getElementById('filtro-dest').value;
   const mese = document.getElementById('filtro-mese').value;
-
-  const filtrati = tuttiCorsi.filter(c => {
-    const cCat = c['Categoria'] || '';
-    const cSede = c['Scuola'] || '';
-    const cDest = c['Destinatari'] || '';
-    const cMese = getMeseAnno(c['Data'] || '');
-    const attivo = (c['Attivo'] || 'S').toUpperCase();
-    if (cat && cCat !== cat) return false;
-    if (sede && cSede !== sede) return false;
-    if (dest && cDest !== dest) return false;
-    if (mese && cMese !== mese) return false;
+  renderTabella(tuttiCorsi.filter(c => {
+    if (cat && (c['Categoria'] || '') !== cat) return false;
+    if (sede && (c['Scuola'] || '') !== sede) return false;
+    if (dest && (c['Destinatari'] || '') !== dest) return false;
+    if (mese && getMeseAnno(c['Data'] || '') !== mese) return false;
     return true;
-  });
-
-  renderTabella(filtrati);
+  }));
 }
 
 function resetFiltri() {
-  ['filtro-cat','filtro-sede','filtro-dest','filtro-mese'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
+  ['filtro-cat','filtro-sede','filtro-dest','filtro-mese'].forEach(id => document.getElementById(id).value = '');
   filtra();
 }
 
-// ===== LOAD =====
 async function loadCorsi() {
   try {
     const res = await fetch(CSV_URL);
-    if (!res.ok) throw new Error('Errore fetch');
-    const text = await res.text();
-    tuttiCorsi = parseCSV(text);
-
+    if (!res.ok) throw new Error();
+    tuttiCorsi = parseCSV(await res.text());
     if (tuttiCorsi.length === 0) {
-      document.getElementById('tabella-body').innerHTML = `
-        <tr><td colspan="6"><div class="table-msg">Nessun corso disponibile al momento. Torna presto!</div></td></tr>`;
-      return;
+      document.getElementById('tabella-body').innerHTML = `<tr><td colspan="6"><div class="table-msg">Nessun corso disponibile al momento.</div></td></tr>`; return;
     }
-
-    popolaFiltri(tuttiCorsi);
-    filtra();
-
-    ['filtro-cat','filtro-sede','filtro-dest','filtro-mese'].forEach(id => {
-      document.getElementById(id).addEventListener('change', filtra);
-    });
-
+    popolaFiltri(tuttiCorsi); filtra();
+    ['filtro-cat','filtro-sede','filtro-dest','filtro-mese'].forEach(id => document.getElementById(id).addEventListener('change', filtra));
   } catch(e) {
-    document.getElementById('tabella-body').innerHTML = `
-      <tr><td colspan="6"><div class="table-msg">Impossibile caricare il calendario. Riprova tra qualche istante.</div></td></tr>`;
+    document.getElementById('tabella-body').innerHTML = `<tr><td colspan="6"><div class="table-msg">Impossibile caricare il calendario. Riprova tra qualche istante.</div></td></tr>`;
   }
 }
 
-// ===== LOAD TESTI DA GOOGLE SHEET =====
 async function loadTesti() {
-  if (!TESTI_CSV_URL || TESTI_CSV_URL.includes('INSERIRE')) return; // skip se URL non configurato
+  if (!TESTI_CSV_URL || TESTI_CSV_URL.includes('INSERIRE')) return;
   try {
     const res = await fetch(TESTI_CSV_URL);
     if (!res.ok) return;
-    const text = await res.text();
-    const lines = text.trim().split('\n').slice(1); // salta intestazione
     const testi = {};
-    lines.forEach(line => {
-      // parse CSV con possibili virgole nel valore
-      const firstComma = line.indexOf(',');
-      if (firstComma < 0) return;
-      const chiave = line.substring(0, firstComma).replace(/"/g,'').trim();
-      const valore = line.substring(firstComma + 1).replace(/^"|"$/g,'').trim();
-      if (chiave) testi[chiave] = valore;
+    (await res.text()).trim().split('\n').slice(1).forEach(line => {
+      const i = line.indexOf(',');
+      if (i < 0) return;
+      const k = line.substring(0, i).replace(/"/g,'').trim();
+      const v = line.substring(i+1).replace(/^"|"$/g,'').trim();
+      if (k) testi[k] = v;
     });
-    // Popola tutti gli elementi con data-testo
     document.querySelectorAll('[data-testo]').forEach(el => {
-      const chiave = el.getAttribute('data-testo');
-      if (testi[chiave] !== undefined && testi[chiave] !== '') {
-        el.innerHTML = testi[chiave];
-      }
+      const v = testi[el.getAttribute('data-testo')];
+      if (v) el.innerHTML = v;
     });
-  } catch(e) {
-    console.warn('Testi_Sito non caricati:', e);
-    // Non blocca — rimane il testo di default nell'HTML
-  }
+  } catch(e) { console.warn('Testi non caricati:', e); }
 }
 
 loadTesti();
@@ -1113,6 +679,3 @@ loadCorsi();
 </script>
 </body>
 </html>
-
-
-

@@ -497,6 +497,12 @@
       <select id="filtro-sede"><option value="">Tutte le agenzie</option></select>
     </div>
     <div class="filter-group">
+      <label>Provincia</label>
+      <select id="filtro-prov">
+        <option value="">Tutte le province</option>
+      </select>
+    </div>
+    <div class="filter-group">
       <label>Destinatari</label>
       <select id="filtro-dest">
         <option value="">Tutti</option>
@@ -657,7 +663,7 @@ function renderTabella(corsi) {
 function popolaFiltri(corsi) {
   const cats = [...new Set(corsi.map(c => c['Categoria']).filter(Boolean))].sort();
   const sedi = [...new Set(corsi.map(c => c['Scuola']).filter(Boolean))].sort();
-  const mesi = [...new Set(corsi.map(c => getMeseAnno(c['Data'] || '')).filter(Boolean))];
+  const mesi = [...new Set(corsi.map(c => getMeseAnno(c['Data'] || '')).filter(Boolean))];  
   const sel = (id, opts) => {
     const el = document.getElementById(id);
     opts.forEach(o => { const opt = document.createElement('option'); opt.value = o; opt.textContent = o; el.appendChild(opt); });
@@ -666,6 +672,7 @@ function popolaFiltri(corsi) {
 }
 
 function filtra() {
+  const oggi = new Date(); oggi.setHours(0,0,0,0); // ← aggiungi questa riga
   const cat = document.getElementById('filtro-cat').value;
   const sede = document.getElementById('filtro-sede').value;
   const dest = document.getElementById('filtro-dest').value;

@@ -49,18 +49,10 @@
   .header-nav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .nav-btn {
     font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 8px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    border: 2px solid var(--blue);
-    color: var(--blue);
-    background: transparent;
-    transition: all 0.15s;
-    white-space: nowrap;
+    font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    padding: 8px 18px; border-radius: 6px; text-decoration: none;
+    border: 2px solid var(--blue); color: var(--blue); background: transparent;
+    transition: all 0.15s; white-space: nowrap;
   }
   .nav-btn:hover { background: var(--blue); color: white; }
   .nav-btn.accent { background: var(--orange); border-color: var(--orange); color: white; }
@@ -68,13 +60,7 @@
   @media (max-width: 900px) { .header-nav { display: none; } }
 
   /* ===== HERO ===== */
-  .hero {
-    background: var(--brown);
-    position: relative;
-    overflow: hidden;
-    padding: 56px 32px 48px;
-    color: white;
-  }
+  .hero { background: var(--brown); position: relative; overflow: hidden; padding: 56px 32px 48px; color: white; }
   .hero-pattern { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
   .hero-pattern svg { width: 100%; height: 100%; opacity: 0.18; }
   .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
@@ -88,8 +74,7 @@
   .hero h1 {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: clamp(42px, 6vw, 68px); font-weight: 900;
-    line-height: 0.95; text-transform: uppercase;
-    margin-bottom: 20px; letter-spacing: -1px;
+    line-height: 0.95; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px;
   }
   .hero h1 .accent { color: var(--orange); }
   .hero-desc { font-size: 17px; opacity: 0.88; max-width: 600px; line-height: 1.65; margin-bottom: 32px; }
@@ -110,8 +95,7 @@
   .hero-cta:hover { background: var(--orange-dark); transform: translateY(-1px); }
   .hero-stats {
     display: flex; flex-wrap: wrap; gap: 0;
-    margin-top: 40px; padding-top: 32px;
-    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15);
   }
   .stat { padding: 0 32px 0 0; margin-right: 32px; border-right: 1px solid rgba(255,255,255,0.15); }
   .stat:last-child { border-right: none; }
@@ -121,10 +105,9 @@
   /* ===== INAIL BOX ===== */
   .inail-box {
     background: linear-gradient(135deg, #FFF8F0, #FFF3E0);
-    border-left: 5px solid var(--brown);
-    border-radius: 0 8px 8px 0;
-    padding: 24px 28px; margin: 32px auto;
-    max-width: 1100px; display: flex; align-items: flex-start; gap: 16px;
+    border-left: 5px solid var(--brown); border-radius: 0 8px 8px 0;
+    padding: 24px 28px; margin: 32px auto; max-width: 1100px;
+    display: flex; align-items: flex-start; gap: 16px;
   }
   .inail-box-icon { font-size: 32px; flex-shrink: 0; }
   .inail-box h3 {
@@ -157,8 +140,7 @@
   }
   .ot23-row {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 12px 0; border-bottom: 1px solid var(--border);
-    font-size: 14px; color: var(--text);
+    padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text);
   }
   .ot23-row:last-child { border-bottom: none; }
   .ot23-val { font-weight: 700; color: var(--orange); font-size: 15px; }
@@ -220,16 +202,16 @@
     padding: 3px 9px; border-radius: 20px; text-transform: uppercase;
     letter-spacing: 0.5px; white-space: nowrap;
   }
-  .cat-Tecnologiedigitali { background: #EEF2FF; color: #3B5BDB; }
-  .cat-Innovazione        { background: #FFF3E0; color: #E65100; }
-  .cat-Analisinfortuni    { background: #FFF8E1; color: #F9A825; }
-  .cat-Organizzazionecantiere { background: #E8F5E9; color: #2E7D32; }
-  .cat-Gestionerifiuti    { background: #E8F5E9; color: #2E7D32; }
-  .cat-Salute             { background: #FCE4EC; color: #AD1457; }
-  .cat-Ruolopreposto      { background: #EDE7F6; color: #4527A0; }
-  .cat-Proceduresicurezza { background: #E3F2FD; color: #0D47A1; }
-  .cat-Comunicazione      { background: #FBE9E7; color: #BF360C; }
-  .cat-Malattieprofessionali { background: #FCE4EC; color: #AD1457; }
+  .cat-Tecnologiedigitali      { background: #EEF2FF; color: #3B5BDB; }
+  .cat-Innovazione             { background: #FFF3E0; color: #E65100; }
+  .cat-Analisinfortuni         { background: #FFF8E1; color: #F9A825; }
+  .cat-Organizzazionecantiere  { background: #E8F5E9; color: #2E7D32; }
+  .cat-Gestionerifiuti         { background: #E8F5E9; color: #2E7D32; }
+  .cat-Salute                  { background: #FCE4EC; color: #AD1457; }
+  .cat-Ruolopreposto           { background: #EDE7F6; color: #4527A0; }
+  .cat-Proceduresicurezza      { background: #E3F2FD; color: #0D47A1; }
+  .cat-Comunicazione           { background: #FBE9E7; color: #BF360C; }
+  .cat-Malattieprofessionali   { background: #FCE4EC; color: #AD1457; }
   .sede-wrap { display: flex; align-items: center; gap: 6px; }
   .sede-name { font-weight: 500; font-size: 13px; }
   .sede-citta { font-size: 11px; color: var(--muted); }
@@ -255,33 +237,22 @@
 
   /* ===== FOOTER ===== */
   .footer-contact {
-    background: white;
-    padding: 48px 32px;
-    text-align: center;
-    border-top: 1px solid var(--border);
+    background: white; padding: 48px 32px; text-align: center; border-top: 1px solid var(--border);
   }
   .footer-contact h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 1px; color: var(--blue); margin-bottom: 20px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 20px;
   }
   .footer-email-btn {
-    display: inline-block;
-    background: var(--blue); color: white;
+    display: inline-block; background: var(--blue); color: white;
     font-family: 'Barlow', sans-serif; font-size: 16px; font-weight: 500;
-    padding: 16px 40px; border-radius: 6px; text-decoration: none;
-    transition: background 0.2s;
+    padding: 16px 40px; border-radius: 6px; text-decoration: none; transition: background 0.2s;
   }
   .footer-email-btn:hover { background: var(--blue-light); }
-  footer {
-    background: #f5f7fa;
-    border-top: 1px solid var(--border);
-    padding: 20px 32px;
-  }
+  footer { background: #f5f7fa; border-top: 1px solid var(--border); padding: 20px 32px; }
   .footer-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; align-items: center;
-    justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    max-width: 1100px; margin: 0 auto; display: flex;
+    align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
   .footer-logo img { height: 36px; width: auto; }
   .footer-social { display: flex; align-items: center; gap: 12px; }
@@ -289,14 +260,11 @@
     display: flex; align-items: center; justify-content: center;
     width: 40px; height: 40px; border-radius: 50%;
     border: 2px solid var(--blue); color: var(--blue);
-    text-decoration: none; font-size: 16px;
-    transition: all 0.15s;
+    text-decoration: none; transition: all 0.15s;
   }
   .footer-social a:hover { background: var(--blue); color: white; }
   .footer-copy { font-size: 11px; color: var(--muted); text-align: center; width: 100%; padding-top: 12px; border-top: 1px solid var(--border); }
-  @media (max-width: 768px) {
-    .footer-inner { justify-content: center; text-align: center; }
-  }
+  @media (max-width: 768px) { .footer-inner { justify-content: center; text-align: center; } }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
@@ -378,22 +346,10 @@
     </div>
     <a href="#corsi" class="hero-cta">↓ Scegli il corso</a>
     <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">14</div>
-        <div class="stat-label">Corsi disponibili</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">33</div>
-        <div class="stat-label">Agenzie Formative</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">4h</div>
-        <div class="stat-label">Durata per corso</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">0€</div>
-        <div class="stat-label">Costo per l'impresa</div>
-      </div>
+      <div class="stat"><div class="stat-num">14</div><div class="stat-label">Corsi disponibili</div></div>
+      <div class="stat"><div class="stat-num">33</div><div class="stat-label">Agenzie Formative</div></div>
+      <div class="stat"><div class="stat-num">4h</div><div class="stat-label">Durata per corso</div></div>
+      <div class="stat"><div class="stat-num">0€</div><div class="stat-label">Costo per l'impresa</div></div>
     </div>
   </div>
 </div>
@@ -499,6 +455,10 @@
       <select id="filtro-sede"><option value="">Tutte le agenzie</option></select>
     </div>
     <div class="filter-group">
+      <label>Provincia</label>
+      <select id="filtro-prov"><option value="">Tutte le province</option></select>
+    </div>
+    <div class="filter-group">
       <label>Destinatari</label>
       <select id="filtro-dest">
         <option value="">Tutti</option>
@@ -518,12 +478,7 @@
     <table id="tabella-corsi">
       <thead>
         <tr>
-          <th>Corso</th>
-          <th>Categoria</th>
-          <th>Sede</th>
-          <th>Data</th>
-          <th>Durata</th>
-          <th></th>
+          <th>Corso</th><th>Categoria</th><th>Sede</th><th>Data</th><th>Durata</th><th></th>
         </tr>
       </thead>
       <tbody id="tabella-body">
@@ -534,14 +489,10 @@
 </div>
 
 <!-- FOOTER CONTATTI -->
-<!-- FOOTER CONTATTI -->
 <div class="footer-contact">
   <h3>Per informazioni scrivici a:</h3>
-  <a href="mailto:info@accademiacostruzioni.it" class="footer-email-btn">
-    info@accademiacostruzioni.it
-  </a>
+  <a href="mailto:info@accademiacostruzioni.it" class="footer-email-btn">info@accademiacostruzioni.it</a>
 </div>
-
 
 <!-- FOOTER -->
 <footer>
@@ -568,7 +519,7 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const TESTI_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=295878207&single=true&output=csv';
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=1090395270&single=true&output=csv';
 const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSctzEKUt1WsrKHCP6X110sD2ESGhjCymAtKDHWS-0i2r9YAgg/viewform';
@@ -624,17 +575,17 @@ function renderTabella(corsi) {
   }
   count.innerHTML = `Visualizzati <strong>${corsi.length}</strong> ${corsi.length === 1 ? 'corso' : 'corsi'}`;
   body.innerHTML = corsi.map(c => {
-    const titolo = c['Titolo'] || '—';
-    const cat = c['Categoria'] || '';
-    const dest = c['Destinatari'] || '';
+    const titolo    = c['Titolo'] || '—';
+    const cat       = c['Categoria'] || '';
+    const dest      = c['Destinatari'] || '';
     const contenuti = c['Contenuti principali'] || '';
-    const durata = c['Durata'] || '4 ore';
-    const scuola = c['Scuola'] || '';
-    const citta = c['Città'] || '';
-    const data = c['Data'] || '';
-    const oraRaw = c['Ora inizio'] || '';
-    const ora = /^\d{1,2}:\d{2}$/.test(oraRaw) ? oraRaw : '';
-    const linkForm = c['Link form'] || FORM_URL;
+    const durata    = c['Durata'] || '4 ore';
+    const scuola    = c['Scuola'] || '';
+    const citta     = c['Citt\u00e0'] || c['Città'] || '';
+    const data      = c['Data'] || '';
+    const oraRaw    = c['Ora inizio'] || '';
+    const ora       = /^\d{1,2}:\d{2}$/.test(oraRaw) ? oraRaw : '';
+    const linkForm  = c['Link form'] || FORM_URL;
     return `<tr>
       <td>
         <div class="corso-titolo">${titolo}</div>
@@ -642,12 +593,10 @@ function renderTabella(corsi) {
       </td>
       <td><span class="cat ${catClass(cat)}">${cat}</span></td>
       <td>
-        <div class="sede-wrap">
-          <div>
-            <div class="sede-name">${scuola}</div>
-            ${citta ? `<div class="sede-citta">${citta}</div>` : ''}
-          </div>
-        </div>
+        <div class="sede-wrap"><div>
+          <div class="sede-name">${scuola}</div>
+          ${citta ? `<div class="sede-citta">${citta}</div>` : ''}
+        </div></div>
       </td>
       <td>
         <div class="data-giorno">${formatData(data)}</div>
@@ -660,15 +609,19 @@ function renderTabella(corsi) {
 }
 
 function popolaFiltri(corsi) {
-  const cats = [...new Set(corsi.map(c => c['Categoria']).filter(Boolean))].sort();
-  const sedi = [...new Set(corsi.map(c => c['Scuola']).filter(Boolean))].sort();
-  const mesi = [...new Set(corsi.map(c => getMeseAnno(c['Data'] || '')).filter(Boolean))];
+  const cats  = [...new Set(corsi.map(c => c['Categoria']).filter(Boolean))].sort();
+  const sedi  = [...new Set(corsi.map(c => c['Scuola']).filter(Boolean))].sort();
+  const provs = [...new Set(corsi.map(c => c['Sede']).filter(Boolean))].sort();
+  const mesi  = [...new Set(corsi.map(c => getMeseAnno(c['Data'] || '')).filter(Boolean))];
   const sel = (id, opts) => {
     const el = document.getElementById(id);
+    if (!el) return;
     opts.forEach(o => { const opt = document.createElement('option'); opt.value = o; opt.textContent = o; el.appendChild(opt); });
   };
-  const provs = [...new Set(corsi.map(c => c['Sede']).filter(Boolean))].sort();
-  sel('filtro-cat', cats); sel('filtro-sede', sedi); sel('filtro-prov', provs); sel('filtro-mese', mesi);
+  sel('filtro-cat', cats);
+  sel('filtro-sede', sedi);
+  sel('filtro-prov', provs);
+  sel('filtro-mese', mesi);
 }
 
 function filtra() {
@@ -686,31 +639,37 @@ function filtra() {
         if (dc < oggi) return false;
       }
     }
-    if (cat  && (c['Categoria']  || '') !== cat)  return false;
-    if (sede && (c['Scuola']     || '') !== sede)  return false;
-    if (prov && (c['Sede']       || '') !== prov)  return false;
-    if (dest && (c['Destinatari']|| '') !== dest)  return false;
+    if (cat  && (c['Categoria']   || '') !== cat)  return false;
+    if (sede && (c['Scuola']      || '') !== sede)  return false;
+    if (prov && (c['Sede']        || '') !== prov)  return false;
+    if (dest && (c['Destinatari'] || '') !== dest)  return false;
     if (mese && getMeseAnno(c['Data'] || '') !== mese) return false;
     return true;
   }));
 }
 
 function resetFiltri() {
-  ['filtro-cat','filtro-sede','filtro-prov','filtro-dest','filtro-mese'].forEach(id => document.getElementById(id).value = '');
+  ['filtro-cat','filtro-sede','filtro-prov','filtro-dest','filtro-mese'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.value = '';
+  });
   filtra();
 }
 
 async function loadCorsi() {
   try {
     const res = await fetch(CSV_URL);
-    if (!res.ok) throw new Error();
+    if (!res.ok) throw new Error('Fetch fallito: ' + res.status);
     tuttiCorsi = parseCSV(await res.text());
     if (tuttiCorsi.length === 0) {
       document.getElementById('tabella-body').innerHTML = `<tr><td colspan="6"><div class="table-msg">Nessun corso disponibile al momento.</div></td></tr>`; return;
     }
-    popolaFiltri(tuttiCorsi); filtra();
-    ['filtro-cat','filtro-sede','filtro-prov','filtro-dest','filtro-mese'].forEach(id => document.getElementById(id).addEventListener('change', filtra));
+    popolaFiltri(tuttiCorsi);
+    filtra();
+    ['filtro-cat','filtro-sede','filtro-prov','filtro-dest','filtro-mese'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.addEventListener('change', filtra);
+    });
   } catch(e) {
+    console.error('Errore caricamento corsi:', e);
     document.getElementById('tabella-body').innerHTML = `<tr><td colspan="6"><div class="table-msg">Impossibile caricare il calendario. Riprova tra qualche istante.</div></td></tr>`;
   }
 }
@@ -728,4 +687,16 @@ async function loadTesti() {
       const v = line.substring(i+1).replace(/^"|"$/g,'').trim();
       if (k) testi[k] = v;
     });
-    do
+    document.querySelectorAll('[data-testo]').forEach(el => {
+      const v = testi[el.getAttribute('data-testo')];
+      if (v) el.innerHTML = v;
+    });
+  } catch(e) { console.warn('Testi non caricati:', e); }
+}
+
+loadTesti();
+loadCorsi();
+</script>
+</body>
+</html>
+

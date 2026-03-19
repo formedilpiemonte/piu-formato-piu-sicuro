@@ -569,13 +569,26 @@
       <img src="loghi/accademia.png" alt="Accademia Costruzioni Piemonte">
     </a>
     <div class="header-sep"></div>
-    <a href="" target="_blank" rel="noopener">
+    <a href="https://www.formedilpiemonte.it/" target="_blank" rel="noopener">
       <img src="loghi/formedil.png" alt="Formedil Piemonte">
     </a>
   </div>
   <a href="#corsi" style="display:inline-block;background:var(--orange);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:6px;text-decoration:none;">📅 Calendario Corsi</a>
 </header>
 
+<!-- FINANZIATORI BAR -->
+<div class="finanziatori-bar">
+  <span class="fin-label">Progetto finanziato da:</span>
+  <div class="fin-logos">
+    <a href="https://www.regione.piemonte.it/web/" target="_blank" rel="noopener">
+      <img src="loghi/regione.png" alt="Regione Piemonte">
+    </a>
+    <span style="color:var(--border);font-size:20px;font-weight:300;">|</span>
+    <a href="https://www.inail.it/portale/" target="_blank" rel="noopener">
+      <img src="loghi/inail.png" alt="INAIL">
+    </a>
+  </div>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -629,8 +642,8 @@
         <div class="stat-label">Corsi disponibili</div>
       </div>
       <div class="stat">
-        <div class="stat-num">33</div>
-        <div class="stat-label">Agenzie Formative</div>
+        <div class="stat-num">8</div>
+        <div class="stat-label">Scuole Edili</div>
       </div>
       <div class="stat">
         <div class="stat-num">4h</div>
@@ -792,7 +805,7 @@
 // ===== CONFIG =====
 // ⚠️ TESTI_CSV_URL: pubblica il foglio Testi_Sito come CSV e incolla qui il link
 // Vai su File → Pubblica sul web → Foglio: Testi_Sito → Formato: CSV → copia link
-const TESTI_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=295878207&single=true&output=csv';
+const TESTI_CSV_URL = 'INSERIRE_URL_CSV_FOGLIO_TESTI_SITO';
 
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=1090395270&single=true&output=csv';
 const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSctzEKUt1WsrKHCP6X110sD2ESGhjCymAtKDHWS-0i2r9YAgg/viewform';
@@ -875,10 +888,7 @@ function renderTabella(corsi) {
     const data = c['Data'] || '';
     const ora = c['Ora inizio'] || '';
     const postiMax = c['Posti max'] || '';
-    const attivo = (c['Attivo'] || 'S').toUpperCase();
     const linkForm = c['Link form'] || FORM_URL;
-
-    if (attivo === 'N') return '';
 
     // Logo scuola territoriale
     const logoMap = {
@@ -951,7 +961,6 @@ function filtra() {
     const cDest = c['Destinatari'] || '';
     const cMese = getMeseAnno(c['Data'] || '');
     const attivo = (c['Attivo'] || 'S').toUpperCase();
-    if (attivo === 'N') return false;
     if (cat && cCat !== cat) return false;
     if (sede && cSede !== sede) return false;
     if (dest && cDest !== dest) return false;
@@ -1031,5 +1040,6 @@ loadCorsi();
 </script>
 </body>
 </html>
+
 
 

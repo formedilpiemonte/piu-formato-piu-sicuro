@@ -57,7 +57,24 @@
   .nav-btn:hover { background: var(--blue); color: white; }
   .nav-btn.accent { background: var(--orange); border-color: var(--orange); color: white; }
   .nav-btn.accent:hover { background: var(--orange-dark); border-color: var(--orange-dark); }
-  @media (max-width: 900px) { .header-nav { display: none; } }
+  .nav-btn.agenzie { background: var(--blue); border-color: var(--blue); color: white; }
+  .nav-btn.agenzie:hover { background: var(--blue-light); border-color: var(--blue-light); }
+
+  /* ===== HAMBURGER ===== */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 6px; background: none; border: none;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--blue); border-radius: 2px; transition: all 0.2s; }
+  @media (max-width: 900px) {
+    .header-nav {
+      display: none; flex-direction: column; width: 100%;
+      gap: 6px; padding: 8px 0 4px; border-top: 1px solid var(--border);
+    }
+    .header-nav.open { display: flex; }
+    .nav-btn { text-align: center; }
+    .hamburger { display: flex; }
+  }
 
   /* ===== HERO ===== */
   .hero { background: var(--brown); position: relative; overflow: hidden; padding: 56px 32px 48px; color: white; }
@@ -235,6 +252,31 @@
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
+  /* ===== AREA AGENZIE ===== */
+  .agenzie-section {
+    background: white; padding: 40px 24px; border-top: 1px solid var(--border);
+  }
+  .agenzie-inner { max-width: 1100px; margin: 0 auto; }
+  .agenzie-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px; margin-top: 24px;
+  }
+  .agenzie-card {
+    background: var(--light); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px; display: flex; align-items: flex-start; gap: 14px;
+    transition: box-shadow 0.15s; text-decoration: none; color: var(--text);
+  }
+  .agenzie-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-color: var(--blue); }
+  .agenzie-card-icon { font-size: 28px; flex-shrink: 0; }
+  .agenzie-card-title { font-weight: 700; font-size: 14px; color: var(--blue); margin-bottom: 4px; }
+  .agenzie-card-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .agenzie-card-tipo {
+    display: inline-block; margin-top: 8px; font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+    background: var(--blue); color: white;
+  }
+  .agenzie-loading { color: var(--muted); font-size: 14px; padding: 20px 0; }
+
   /* ===== FOOTER ===== */
   .footer-contact {
     background: white; padding: 48px 32px; text-align: center; border-top: 1px solid var(--border);
@@ -254,6 +296,7 @@
     max-width: 1100px; margin: 0 auto; display: flex;
     align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
+  .footer-logo { display: flex; align-items: center; gap: 16px; }
   .footer-logo img { height: 36px; width: auto; }
   .footer-social { display: flex; align-items: center; gap: 12px; }
   .footer-social a {
@@ -292,15 +335,19 @@
       <img src="loghi/accademia.png" alt="Accademia Costruzioni Piemonte">
     </a>
     <div class="header-sep"></div>
-     
+    <a href="https://www.formedilpiemonte.it/" target="_blank" rel="noopener">
       <img src="loghi/formedil.png" alt="Formedil Piemonte">
     </a>
   </div>
-  <nav class="header-nav">
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="header-nav" id="header-nav">
     <a href="#progetto" class="nav-btn">Progetto</a>
     <a href="#catalogo" class="nav-btn">Catalogo Corsi</a>
     <a href="#corsi" class="nav-btn">Calendario Corsi</a>
     <a href="#sgravi" class="nav-btn accent">💰 Sgravi INAIL</a>
+    <a href="#agenzie" class="nav-btn agenzie">📋 Area Agenzie</a>
   </nav>
 </header>
 
@@ -370,7 +417,6 @@
 <div class="section" style="max-width:900px;">
   <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;text-transform:uppercase;color:var(--blue);margin-bottom:4px;" data-testo="progetto_titolo2">Il Progetto</div>
   <div style="font-size:14px;color:var(--muted);margin-bottom:16px;font-style:italic;" data-testo="progetto_subtitle2">Un'iniziativa di INAIL e Regione Piemonte per la sicurezza in edilizia</div>
- 
   <div style="font-size:15px;line-height:1.75;color:var(--text);">
     <p style="margin-bottom:16px;" data-testo="progetto_p1">L'Accademia delle Costruzioni, Formedil Piemonte, ANCE Piemonte e Confartigianato Imprese Piemonte avviano la campagna regionale <strong>"Più formato. Più sicuro."</strong>, finalizzata a promuovere la partecipazione delle imprese edili ai corsi di formazione aggiuntiva in materia di salute e sicurezza sul lavoro finanziati da INAIL e Regione Piemonte.</p>
     <p style="margin-bottom:16px;" data-testo="progetto_p2">L'iniziativa si inserisce nell'ambito dell'Accordo Quadro sottoscritto il <strong>13 luglio 2023</strong> tra INAIL e la Conferenza delle Regioni e delle Province Autonome e attuato in Piemonte con Determinazione Dirigenziale n. 485 del 4 settembre 2024, che ha destinato complessivamente <strong>786.130 euro</strong> al finanziamento di percorsi formativi specialistici rivolti ai lavoratori del settore delle costruzioni.</p>
@@ -478,14 +524,23 @@
   <div class="table-wrap">
     <table id="tabella-corsi">
       <thead>
-        <tr>
-          <th>Corso</th><th>Categoria</th><th>Sede</th><th>Data</th><th>Durata</th><th></th>
-        </tr>
+        <tr><th>Corso</th><th>Categoria</th><th>Sede</th><th>Data</th><th>Durata</th><th></th></tr>
       </thead>
       <tbody id="tabella-body">
         <tr><td colspan="6"><div class="table-msg"><div class="spinner"></div>Caricamento corsi in corso...</div></td></tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- AREA AGENZIE -->
+<div id="agenzie" class="agenzie-section">
+  <div class="agenzie-inner">
+    <div class="section-title">📋 Area Agenzie</div>
+    <div class="section-sub">Guide operative, moduli e documenti per le Agenzie Formative</div>
+    <div id="agenzie-grid" class="agenzie-grid">
+      <div class="agenzie-loading">Caricamento documenti...</div>
+    </div>
   </div>
 </div>
 
@@ -495,16 +550,14 @@
   <a href="mailto:info@accademiacostruzioni.it" class="footer-email-btn">info@accademiacostruzioni.it</a>
 </div>
 
-
-
-
-  
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
       <a href="https://accademiacostruzioni.it/" target="_blank" rel="noopener">
         <img src="loghi/accademia.png" alt="Accademia Costruzioni Piemonte">
+      </a>
+      <a href="https://www.formedilpiemonte.it/" target="_blank" rel="noopener">
         <img src="loghi/formedil.png" alt="Formedil Piemonte">
       </a>
     </div>
@@ -526,11 +579,25 @@
 </footer>
 
 <script>
-const TESTI_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=295878207&single=true&output=csv';
-const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=1090395270&single=true&output=csv';
-const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSctzEKUt1WsrKHCP6X110sD2ESGhjCymAtKDHWS-0i2r9YAgg/viewform';
+// ── CONFIG ─────────────────────────────────────────────────────
+const TESTI_CSV_URL   = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=295878207&single=true&output=csv';
+const CSV_URL         = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQTCS0wBXVUs9S6hFyNyX20JjG0UScB9vpIImIuQXeGkgfy_KUIr6-OCYgNj6S528xLDJHa3dVVta0x/pub?gid=1090395270&single=true&output=csv';
+const FORM_URL        = 'https://docs.google.com/forms/d/e/1FAIpQLSctzEKUt1WsrKHCP6X110sD2ESGhjCymAtKDHWS-0i2r9YAgg/viewform';
+// ⚠️ Sostituire con URL CSV del foglio Area_Agenzie dopo averlo pubblicato
+const AGENZIE_CSV_URL = 'INSERIRE_URL_CSV_AREA_AGENZIE';
+
 let tuttiCorsi = [];
 
+// ── HAMBURGER ──────────────────────────────────────────────────
+function toggleMenu() {
+  document.getElementById('header-nav').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('header-nav');
+  if (e.target.classList.contains('nav-btn')) nav.classList.remove('open');
+});
+
+// ── CSV PARSER ─────────────────────────────────────────────────
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
@@ -548,6 +615,7 @@ function parseCSV(text) {
   }).filter(r => r['ID'] && r['ID'] !== 'ID');
 }
 
+// ── DATE ───────────────────────────────────────────────────────
 function formatData(dateStr) {
   if (!dateStr) return '';
   const parts = dateStr.split('/');
@@ -572,6 +640,7 @@ function catClass(cat) {
   return 'cat-' + cat.replace(/\s+/g, '').replace(/[|\/]/g, '');
 }
 
+// ── RENDER TABELLA ─────────────────────────────────────────────
 function renderTabella(corsi) {
   const body = document.getElementById('tabella-body');
   const count = document.getElementById('results-count');
@@ -598,12 +667,10 @@ function renderTabella(corsi) {
         ${contenuti ? `<div class="corso-desc">${contenuti}</div>` : dest ? `<div class="corso-desc">Per: ${dest}</div>` : ''}
       </td>
       <td><span class="cat ${catClass(cat)}">${cat}</span></td>
-      <td>
-        <div class="sede-wrap"><div>
-          <div class="sede-name">${scuola}</div>
-          ${citta ? `<div class="sede-citta">${citta}</div>` : ''}
-        </div></div>
-      </td>
+      <td><div class="sede-wrap"><div>
+        <div class="sede-name">${scuola}</div>
+        ${citta ? `<div class="sede-citta">${citta}</div>` : ''}
+      </div></div></td>
       <td>
         <div class="data-giorno">${formatData(data)}</div>
         ${ora ? `<div class="data-ora">ore ${ora}</div>` : ''}
@@ -614,20 +681,16 @@ function renderTabella(corsi) {
   }).join('');
 }
 
+// ── FILTRI ─────────────────────────────────────────────────────
 function popolaFiltri(corsi) {
-  const cats  = [...new Set(corsi.map(c => c['Categoria']).filter(Boolean))].sort();
-  const sedi  = [...new Set(corsi.map(c => c['Scuola']).filter(Boolean))].sort();
-  const provs = [...new Set(corsi.map(c => c['Sede']).filter(Boolean))].sort();
-  const mesi  = [...new Set(corsi.map(c => getMeseAnno(c['Data'] || '')).filter(Boolean))];
   const sel = (id, opts) => {
-    const el = document.getElementById(id);
-    if (!el) return;
+    const el = document.getElementById(id); if (!el) return;
     opts.forEach(o => { const opt = document.createElement('option'); opt.value = o; opt.textContent = o; el.appendChild(opt); });
   };
-  sel('filtro-cat', cats);
-  sel('filtro-sede', sedi);
-  sel('filtro-prov', provs);
-  sel('filtro-mese', mesi);
+  sel('filtro-cat',  [...new Set(corsi.map(c => c['Categoria']).filter(Boolean))].sort());
+  sel('filtro-sede', [...new Set(corsi.map(c => c['Scuola']).filter(Boolean))].sort());
+  sel('filtro-prov', [...new Set(corsi.map(c => c['Sede']).filter(Boolean))].sort());
+  sel('filtro-mese', [...new Set(corsi.map(c => getMeseAnno(c['Data'] || '')).filter(Boolean))]);
 }
 
 function filtra() {
@@ -640,10 +703,7 @@ function filtra() {
   renderTabella(tuttiCorsi.filter(c => {
     if (c['Data']) {
       const p = c['Data'].split('/');
-      if (p.length === 3) {
-        const dc = new Date(p[2], p[1]-1, p[0]);
-        if (dc < oggi) return false;
-      }
+      if (p.length === 3 && new Date(p[2], p[1]-1, p[0]) < oggi) return false;
     }
     if (cat  && (c['Categoria']   || '') !== cat)  return false;
     if (sede && (c['Scuola']      || '') !== sede)  return false;
@@ -661,25 +721,69 @@ function resetFiltri() {
   filtra();
 }
 
+// ── LOAD CORSI ─────────────────────────────────────────────────
 async function loadCorsi() {
   try {
     const res = await fetch(CSV_URL);
-    if (!res.ok) throw new Error('Fetch fallito: ' + res.status);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     tuttiCorsi = parseCSV(await res.text());
     if (tuttiCorsi.length === 0) {
       document.getElementById('tabella-body').innerHTML = `<tr><td colspan="6"><div class="table-msg">Nessun corso disponibile al momento.</div></td></tr>`; return;
     }
-    popolaFiltri(tuttiCorsi);
-    filtra();
+    popolaFiltri(tuttiCorsi); filtra();
     ['filtro-cat','filtro-sede','filtro-prov','filtro-dest','filtro-mese'].forEach(id => {
       const el = document.getElementById(id); if (el) el.addEventListener('change', filtra);
     });
   } catch(e) {
-    console.error('Errore caricamento corsi:', e);
+    console.error('Errore corsi:', e);
     document.getElementById('tabella-body').innerHTML = `<tr><td colspan="6"><div class="table-msg">Impossibile caricare il calendario. Riprova tra qualche istante.</div></td></tr>`;
   }
 }
 
+// ── LOAD AREA AGENZIE ──────────────────────────────────────────
+// Struttura foglio Area_Agenzie: Ordine | Icona | Titolo | Descrizione | Link | Tipo
+async function loadAgenzie() {
+  const grid = document.getElementById('agenzie-grid');
+  if (!AGENZIE_CSV_URL || AGENZIE_CSV_URL.includes('INSERIRE')) {
+    grid.innerHTML = '<p style="color:var(--muted);font-size:14px;">Sezione in preparazione. I documenti saranno disponibili a breve.</p>';
+    return;
+  }
+  try {
+    const res = await fetch(AGENZIE_CSV_URL);
+    if (!res.ok) throw new Error();
+    const lines = (await res.text()).trim().split('\n').slice(1);
+    const items = lines.map(line => {
+      const vals = []; let cur = '', inQ = false;
+      for (let c of line) {
+        if (c === '"') inQ = !inQ;
+        else if (c === ',' && !inQ) { vals.push(cur.trim()); cur = ''; }
+        else cur += c;
+      }
+      vals.push(cur.trim());
+      return { ordine: vals[0], icona: vals[1] || '📄', titolo: vals[2], descrizione: vals[3], link: vals[4], tipo: vals[5] || 'Doc' };
+    }).filter(r => r.titolo).sort((a,b) => parseInt(a.ordine) - parseInt(b.ordine));
+
+    if (items.length === 0) {
+      grid.innerHTML = '<p style="color:var(--muted);font-size:14px;">Nessun documento disponibile al momento.</p>'; return;
+    }
+    grid.innerHTML = items.map(item => {
+      const tag = item.link ? 'a' : 'div';
+      const href = item.link ? `href="${item.link}" target="_blank" rel="noopener"` : '';
+      return `<${tag} class="agenzie-card" ${href}>
+        <div class="agenzie-card-icon">${item.icona}</div>
+        <div>
+          <div class="agenzie-card-title">${item.titolo}</div>
+          ${item.descrizione ? `<div class="agenzie-card-desc">${item.descrizione}</div>` : ''}
+          <span class="agenzie-card-tipo">${item.tipo}</span>
+        </div>
+      </${tag}>`;
+    }).join('');
+  } catch(e) {
+    grid.innerHTML = '<p style="color:var(--muted);font-size:14px;">Impossibile caricare i documenti.</p>';
+  }
+}
+
+// ── LOAD TESTI ─────────────────────────────────────────────────
 async function loadTesti() {
   if (!TESTI_CSV_URL || TESTI_CSV_URL.includes('INSERIRE')) return;
   try {
@@ -687,22 +791,22 @@ async function loadTesti() {
     if (!res.ok) return;
     const testi = {};
     (await res.text()).trim().split('\n').slice(1).forEach(line => {
-      const i = line.indexOf(',');
-      if (i < 0) return;
+      const i = line.indexOf(','); if (i < 0) return;
       const k = line.substring(0, i).replace(/"/g,'').trim();
       const v = line.substring(i+1).replace(/^"|"$/g,'').trim();
       if (k) testi[k] = v;
     });
     document.querySelectorAll('[data-testo]').forEach(el => {
-      const v = testi[el.getAttribute('data-testo')];
-      if (v) el.innerHTML = v;
+      const v = testi[el.getAttribute('data-testo')]; if (v) el.innerHTML = v;
     });
   } catch(e) { console.warn('Testi non caricati:', e); }
 }
 
 loadTesti();
 loadCorsi();
+loadAgenzie();
 </script>
 </body>
 </html>
+
 

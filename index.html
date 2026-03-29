@@ -238,6 +238,10 @@
     display: inline-block; background: var(--light); border: 1px solid var(--border);
     border-radius: 4px; padding: 3px 8px; font-size: 12px; font-weight: 600; color: var(--text);
   }
+  .prov-badge {
+    display: inline-block; background: var(--blue); color: white;
+    border-radius: 4px; padding: 3px 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;
+  }
   .btn-iscriviti {
     display: inline-block; background: var(--orange); color: white;
     font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px;
@@ -524,10 +528,10 @@
   <div class="table-wrap">
     <table id="tabella-corsi">
       <thead>
-        <tr><th>Corso</th><th>Categoria</th><th>Sede</th><th>Data</th><th>Durata</th><th></th></tr>
+        <tr><th>Corso</th><th>Categoria</th><th>Sede</th><th>Provincia</th><th>Data</th><th>Durata</th><th></th></tr>
       </thead>
       <tbody id="tabella-body">
-        <tr><td colspan="6"><div class="table-msg"><div class="spinner"></div>Caricamento corsi in corso...</div></td></tr>
+        <tr><td colspan="7"><div class="table-msg"><div class="spinner"></div>Caricamento corsi in corso...</div></td></tr>
       </tbody>
     </table>
   </div>
@@ -645,7 +649,7 @@ function renderTabella(corsi) {
   const body = document.getElementById('tabella-body');
   const count = document.getElementById('results-count');
   if (corsi.length === 0) {
-    body.innerHTML = `<tr><td colspan="6"><div class="table-msg">Nessun corso trovato con i filtri selezionati.</div></td></tr>`;
+    body.innerHTML = `<tr><td colspan="7"><div class="table-msg">Nessun corso trovato con i filtri selezionati.</div></td></tr>`;
     count.innerHTML = 'Nessun corso trovato'; return;
   }
   count.innerHTML = `Visualizzati <strong>${corsi.length}</strong> ${corsi.length === 1 ? 'corso' : 'corsi'}`;
@@ -671,6 +675,7 @@ function renderTabella(corsi) {
         <div class="sede-name">${scuola}</div>
         ${citta ? `<div class="sede-citta">${citta}</div>` : ''}
       </div></div></td>
+      <td><span class="prov-badge">${c['Sede'] || ''}</span></td>
       <td>
         <div class="data-giorno">${formatData(data)}</div>
         ${ora ? `<div class="data-ora">ore ${ora}</div>` : ''}
@@ -728,7 +733,7 @@ async function loadCorsi() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     tuttiCorsi = parseCSV(await res.text());
     if (tuttiCorsi.length === 0) {
-      document.getElementById('tabella-body').innerHTML = `<tr><td colspan="6"><div class="table-msg">Nessun corso disponibile al momento.</div></td></tr>`; return;
+      document.getElementById('tabella-body').innerHTML = `<tr><td colspan="7"><div class="table-msg">Nessun corso disponibile al momento.</div></td></tr>`; return;
     }
     popolaFiltri(tuttiCorsi); filtra();
     ['filtro-cat','filtro-sede','filtro-prov','filtro-dest','filtro-mese'].forEach(id => {
@@ -736,7 +741,7 @@ async function loadCorsi() {
     });
   } catch(e) {
     console.error('Errore corsi:', e);
-    document.getElementById('tabella-body').innerHTML = `<tr><td colspan="6"><div class="table-msg">Impossibile caricare il calendario. Riprova tra qualche istante.</div></td></tr>`;
+    document.getElementById('tabella-body').innerHTML = `<tr><td colspan="7"><div class="table-msg">Impossibile caricare il calendario. Riprova tra qualche istante.</div></td></tr>`;
   }
 }
 
@@ -808,5 +813,8 @@ loadAgenzie();
 </script>
 </body>
 </html>
+
+
+
 
 

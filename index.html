@@ -791,6 +791,7 @@ function filtra() {
       const p = c['Data'].split('/');
       if (p.length === 3 && new Date(p[2], p[1]-1, p[0]) < oggi) return false;
     }
+    if (c['Attivo'] && c['Attivo'].toUpperCase() !== 'S') return false;
     if (cat  && (c['Categoria']   || '') !== cat)  return false;
     if (sede && (c['Scuola']      || '') !== sede)  return false;
     if (prov && (c['Sede']        || '') !== prov)  return false;
